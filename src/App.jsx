@@ -1,6 +1,7 @@
 import { useState } from "react"
 
 import IngredientList from "./components/IngredientList";
+import BurgerStack from "./components/BurgerStack";
 
 import './App.css';
 
@@ -22,24 +23,26 @@ export const availableIngredients = [
 ];
 
 const App = () => {
-  const [stack, setStack] = useState(availableIngredients)
+  const [stack, setStack] = useState([])
 
   const addToBurger = (newIngredient) => {
     console.log(newIngredient, " new ingredient")
 
-    const newBurgerStack = [...stack, newIngredient]
+    const newBurgerStack = [newIngredient, ...stack]
     console.log(newBurgerStack, "new burger stack")
-
+    
+    // another way... setStack([newIngredient, ...stack])
     setStack(newBurgerStack)
   }
 
 
   return (
     <main>
-      <h1>Burger Stacker!!</h1>
+      <h1>Burger Stacker</h1>
       <section>
       {/* List & Stack components */}
       <IngredientList availableIngredients={availableIngredients} addToBurger={addToBurger}/>
+      <BurgerStack stack={stack}/>
       </section>
     </main>
   );

@@ -8,10 +8,9 @@ const IngredientList = (props) => {
             {props.availableIngredients.map((ingredient) => 
                 <li key={ingredient.name} style={{backgroundColor: ingredient.color}}>
                     {ingredient.name}
-                    <button>+</button>
+                    <button onClick={()=>props.addToBurger(ingredient)}>+</button>
                 </li>
             )}
-            
         </ul>
     )
 }
