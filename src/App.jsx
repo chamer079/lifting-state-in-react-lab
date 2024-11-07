@@ -35,6 +35,13 @@ const App = () => {
     setStack(newBurgerStack)
   }
 
+    const removeFromBurger = (ingredient) => {
+      console.log("86 ingredient", ingredient )
+
+      const eightySixIngredient = stack.filter((item) => item !== ingredient)
+
+      setStack(eightySixIngredient)
+    }
 
   return (
     <main>
@@ -42,7 +49,7 @@ const App = () => {
       <section>
       {/* List & Stack components */}
       <IngredientList availableIngredients={availableIngredients} addToBurger={addToBurger}/>
-      <BurgerStack stack={stack}/>
+      <BurgerStack stack={stack} removeFromBurger={removeFromBurger}/>
       </section>
     </main>
   );
